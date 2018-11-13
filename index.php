@@ -14,7 +14,8 @@
 	<div>
 		 <img src="icon/logo.png"style="position: relative; top: 11px; left: 20px"> 
 	</div>
-	<h1>Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
+	
+	<h1 class="display-4">Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
 	<hr>
 
 
@@ -66,8 +67,22 @@
   </div>
 </div>
 
-<button type="submit" name="submit"  value="submit" class="btn btn-outline-info" style="width:25%; margin:auto;">Search</button>
+<hr>
+<button type="submit" name="submit" class="btn btn-info" id="submit" style="width:25%; margin:auto;">Search</button>
+<style type="text/css">
+#submit{
+	color:white;
+	background-color: #2f9da3;
+}
+#submit:hover{
+		color:#2f9da3;
+		background-color: white;
+		border: 1px solid #2f9da3;
+		
+	}
 
+</style>
+<hr>
 </div>
 </form>
 <hr>

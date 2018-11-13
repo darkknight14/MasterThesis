@@ -1,12 +1,7 @@
 <?php
-	session_start();
-
-	// check to see if the user is logged in
-	if ($_SESSION['loggedin']) 
-	{
-
-	include('header.php');
 	error_reporting(0);	
+	include('header.php');
+	
 	include('connection.php');
 
 	$area = "SELECT * FROM area";
@@ -15,24 +10,24 @@
 <div>
 	<img src="icon/logo.png"style="position: relative; top: 11px; left: 20px"> 
 </div>
-<h1>Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
+
+<h1 class="display-4">Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
 <hr>
+<div id="result" class="alert alert-success" style="display:none">Number of records returned is </div>
 
 
-
-<!-- 
 <form action="searchResults.php" method="POST">
-<div style="">
+<div class="card" style="">
 <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6">
-    <div class="card" style="background-color: lightgrey;">
+    
       <div class="card-body">
         <h5 class="card-title">Area</h5>
         <p class="card-text"><?php
-					  	//while($fetch = mysqli_fetch_assoc($data1)){
+					  	while($fetch = mysqli_fetch_assoc($data1)){
 
-					  		//	$name = $fetch['name'];
-					  		//	$id = $fetch['id'];
+					  			$name = $fetch['name'];
+					  			$id = $fetch['id'];
 					  		?>
 					  		<div style="padding-left: 20px;">
 						  		 <input class="form-check-input" name="checklist[]" type="checkbox" value="<?php echo $id ?>" id="defaultCheck1">
@@ -45,12 +40,12 @@
 					  	}
 					    ?>
         </p>
-        <button type="submit" name="submit" value="submit" class="btn btn-primary" >Search</button>
+       <!--  <button type="submit" name="submit" value="submit" class="btn btn-primary" >Search</button> -->
       </div>
-    </div>
+    
   </div>
   <div class="col-sm-6">
-    <div class="card" style="background-color: lightgrey;">
+  
       <div class="card-body">
         <h5 class="card-title">Thesis Title</h5>
         <input class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp" placeholder="Title">
@@ -62,69 +57,30 @@
         <h5 class="card-title">Supervisor</h5>
         <input class="form-control" id="exampleInputEmail1" name="supervisor" aria-describedby="emailHelp" placeholder="Supervisor">
         </div>
-        <button type="submit" name="submit" value="submit" class="btn btn-primary" style="margin-top: 17px;">Search</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</form>
-<hr> -->
-
-
-<form action="searchResults.php" method="POST">
-<div class="container card" style="padding:2%; ">
-<div class="row" style="margin-top: 20px;">
-  <div class="col-sm-6">
-   
-      <div class="card-body">
-        <h5 class="card-title">Area</h5>
-        <p class="card-text"><?php
-					  	while($fetch = mysqli_fetch_assoc($data1)){
-
-					  			$name = $fetch['name'];
-					  			$id = $fetch['id'];
-					  		?>
-					  		<div style="padding-left: 20px;">
-						  		 <input class="form-check-input" name="checklist[]" type="checkbox" value="<?php echo $id ?>" id="defaultCheck1">
-						  		<label class="form-check-label" for="defaultCheck1">
-						    		<?php echo $name; ?>
-						    	</label>
-						    	<br>
-					    	</div>
-					    <?php
-					  	}
-					    ?>
-        </p>
-        <!-- <button type="submit" name="submit" value="submit" class="btn btn-primary" >Search</button> -->
-      </div>
-    
-  </div>
-  <div class="col-sm-6">
-   
-      <div class="card-body">
-        <h5 class="card-title">Thesis Title</h5>
-        <input class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp" placeholder="Title">
-        <div style="margin-top: 10px;">
-        <h5 class="card-title">Year of Completion</h5>
-        <input class="form-control" id="exampleInputEmail1" name="yoc" aria-describedby="emailHelp" placeholder="Year of Completion">
-        </div>
-        <div style="margin-top: 10px;">
-        <h5 class="card-title">Supervisor</h5>
-        <input class="form-control" id="exampleInputEmail1" name="supervisor" aria-describedby="emailHelp" placeholder="Supervisor">
-        </div>
-        <!-- <button type="submit" name="submit" value="submit" class="btn btn-primary" style="margin-top: 17px;">Search</button> -->
+       
       </div>
     
   </div>
 </div>
+<hr>
+<button type="submit" name="submit" class="btn btn-info" id="submit" style="width:25%; margin:auto;">Search</button>
+<style type="text/css">
+#submit{
+	color:white;
+	background-color: #2f9da3;
+}
+#submit:hover{
+		color:#2f9da3;
+		background-color: white;
+		border: 1px solid #2f9da3;
+		
+	}
 
-<button type="submit" name="submit"  value="submit" class="btn btn-outline-info" style="width:25%; margin:auto;">Search</button>
-
+</style>
+<hr>
 </div>
 </form>
 <hr>
-
 
 
 
@@ -204,6 +160,7 @@
 		}
 	
 		}
+		return $records;
 	}
 
 
@@ -244,6 +201,7 @@
 		}
 	
 		}
+		return $records;
 	}
 
 	function supervisorAndAreaArray($supervisor, $areaArray){
@@ -314,6 +272,7 @@
 		}
 	
 		}
+		return $records;
 	}
 
 	function titleAndAreaArray($title, $areaArray){
@@ -384,6 +343,7 @@
 		}
 	
 		}
+		return $records;
 
 	}
 
@@ -423,6 +383,7 @@
 		}
 	
 		}
+		return $records;
 		
 	}
 
@@ -462,6 +423,7 @@
 		}
 	
 		}
+		return $records;
 	}
 
 	function AreaArrayAndYoc($areaArray, $yoc){
@@ -531,6 +493,7 @@
 		}
 	
 		}
+		return $records;
 	}
 	function YearofCompletion($yoc){
 
@@ -567,6 +530,7 @@
 		}
 	
 		}
+		return $records;
 
 	}
 
@@ -665,6 +629,7 @@
 		}
 	
 		}
+		return $records;
 	}
 
 
@@ -673,61 +638,72 @@
 	$areaArray = $_POST['checklist'];
 	$yoc = $_POST['yoc'];
 	$temp = 1;
-	if($supervisor or $title or $areaArray or $yoc){
+	if($supervisor or $title or $areaArray or $yoc)
+	{
 		if($supervisor and $title and $areaArray ){
 			allthree($supervisor, $title, $areaArray);
 		$temp = 0;
 		}			
 
 		elseif($supervisor and $title and $temp){
-			supervisorAndTitle($supervisor, $title);
+			 $result=supervisorAndTitle($supervisor, $title);
 		$temp = 0;
 		}
 
 		elseif($supervisor and $areaArray and $temp){
-			supervisorAndAreaArray($supervisor, $areaArray);
+			$result=supervisorAndAreaArray($supervisor, $areaArray);
 		$temp = 0;
 		}
 
 		elseif($areaArray and $title and $temp){
-			titleAndAreaArray($title, $areaArray);
+			$result=titleAndAreaArray($title, $areaArray);
 		$temp = 0;
 		}
 
 		elseif($areaArray and $yoc){
-			AreaArrayAndYoc($areaArray,$yoc);
+			$result=AreaArrayAndYoc($areaArray,$yoc);
 			$temp = 0;
 		}
 
 		elseif($supervisor and $temp){
-			supervisor($supervisor);
-		$temp = 0;
+			$result=supervisor($supervisor);
+			$temp = 0;
 		}
 
 		elseif($areaArray and $temp){
-			areaArray($areaArray);
+			$result=areaArray($areaArray);
 		$temp = 0;
 		}
 
 		elseif($title and $temp){
-			title($title);
+			$result=title($title);
 		$temp = 0;
 		}
 
 		elseif($yoc and $temp){
-			YearofCompletion($yoc);
+			$result=YearofCompletion($yoc);
 		}
+
+		?>
+
+		<script type="text/javascript">
+			var show=document.getElementById("result");
+			show.style.display="block";
+			
+			show.innerHTML+=<?php echo $result; ?>
+			/*$("#result").show();*/
+
+			setTimeout(function() {
+			 $("#result").hide(); }, 5000);
+
+		</script>
+
+
+		<?php
 	}
 	else
 		echo('Enter atleast one Field.');
 	
-} 
-else 
-{
-	// user is not logged in, send the user to the login page
 
-	echo '<div class=" alert alert-warning "> You were not logged in !!!</div>';
-	header('Location: adminIOE.html');
-}
 
 ?>

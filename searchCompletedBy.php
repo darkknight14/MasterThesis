@@ -123,8 +123,19 @@
   </div>
 </div>
 
-<button type="submit" name="submit"  value="submit" class="btn btn-outline-info" style="width:25%; margin:auto;">Search</button>
+<hr>
+<button type="submit" name="submit"  value="submit" id="submit" style="width:25%; margin:auto;">Search</button>
+<style type="text/css">
+#submit{
+	color:white;
+	background-color: #2f9da3;
+}
+#submit:hover{
+	
+}
 
+</style>
+<hr>
 </div>
 </form>
 <hr>
