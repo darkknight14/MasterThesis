@@ -17,6 +17,10 @@
 </div>
 <h1>Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
 <hr>
+
+
+
+<!-- 
 <form action="searchResults.php" method="POST">
 <div style="">
 <div class="row" style="margin-top: 20px;">
@@ -25,10 +29,10 @@
       <div class="card-body">
         <h5 class="card-title">Area</h5>
         <p class="card-text"><?php
-					  	while($fetch = mysqli_fetch_assoc($data1)){
+					  	//while($fetch = mysqli_fetch_assoc($data1)){
 
-					  			$name = $fetch['name'];
-					  			$id = $fetch['id'];
+					  		//	$name = $fetch['name'];
+					  		//	$id = $fetch['id'];
 					  		?>
 					  		<div style="padding-left: 20px;">
 						  		 <input class="form-check-input" name="checklist[]" type="checkbox" value="<?php echo $id ?>" id="defaultCheck1">
@@ -65,7 +69,66 @@
 </div>
 </div>
 </form>
+<hr> -->
+
+
+<form action="searchResults.php" method="POST">
+<div class="container card" style="padding:2%; ">
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-6">
+   
+      <div class="card-body">
+        <h5 class="card-title">Area</h5>
+        <p class="card-text"><?php
+					  	while($fetch = mysqli_fetch_assoc($data1)){
+
+					  			$name = $fetch['name'];
+					  			$id = $fetch['id'];
+					  		?>
+					  		<div style="padding-left: 20px;">
+						  		 <input class="form-check-input" name="checklist[]" type="checkbox" value="<?php echo $id ?>" id="defaultCheck1">
+						  		<label class="form-check-label" for="defaultCheck1">
+						    		<?php echo $name; ?>
+						    	</label>
+						    	<br>
+					    	</div>
+					    <?php
+					  	}
+					    ?>
+        </p>
+        <!-- <button type="submit" name="submit" value="submit" class="btn btn-primary" >Search</button> -->
+      </div>
+    
+  </div>
+  <div class="col-sm-6">
+   
+      <div class="card-body">
+        <h5 class="card-title">Thesis Title</h5>
+        <input class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp" placeholder="Title">
+        <div style="margin-top: 10px;">
+        <h5 class="card-title">Year of Completion</h5>
+        <input class="form-control" id="exampleInputEmail1" name="yoc" aria-describedby="emailHelp" placeholder="Year of Completion">
+        </div>
+        <div style="margin-top: 10px;">
+        <h5 class="card-title">Supervisor</h5>
+        <input class="form-control" id="exampleInputEmail1" name="supervisor" aria-describedby="emailHelp" placeholder="Supervisor">
+        </div>
+        <!-- <button type="submit" name="submit" value="submit" class="btn btn-primary" style="margin-top: 17px;">Search</button> -->
+      </div>
+    
+  </div>
+</div>
+
+<button type="submit" name="submit"  value="submit" class="btn btn-outline-info" style="width:25%; margin:auto;">Search</button>
+
+</div>
+</form>
 <hr>
+
+
+
+
+
 <br>
 <?php
 
@@ -506,9 +569,37 @@
 		}
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	function areaArray($areaArray){
 
-				include('connection.php');
+		include('connection.php');
 			
 
 		$count = 0;

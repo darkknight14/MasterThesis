@@ -13,16 +13,7 @@ $query1 = "SELECT distinct student.first_name sfn, student.middle_name smn, stud
 </div>
 <!-- end of container fluid -->
  
- <div class="alert alert-warning alert-dismissible fade show" role="alert" style="position: relative; top: 20px">
-  <strong>
-    <?php 
-      echo '<h5> You are logged in as '.  $_SESSION['name'] . ' !</h5>';
-    ?>
-  </strong>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
+
 
 
 

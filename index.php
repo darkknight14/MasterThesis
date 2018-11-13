@@ -11,16 +11,19 @@
 	$data1 = mysqli_query($conn , $area);
 	?>
 		
-		<div>
-			 <img src="icon/logo.png"style="position: relative; top: 11px; left: 20px"> 
-		</div>
-		<h1>Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
-		<hr>
+	<div>
+		 <img src="icon/logo.png"style="position: relative; top: 11px; left: 20px"> 
+	</div>
+	<h1>Msc in Computer Systems and Knowledge Engineering - Completed Thesis Works</h1>
+	<hr>
+
+
+
 <form action="searchResults.php" method="POST">
-<div style="">
+<div class="container card" style="padding:2%; ">
 <div class="row" style="margin-top: 20px;">
   <div class="col-sm-6">
-    <div class="card" style="background-color: lightgrey;">
+   
       <div class="card-body">
         <h5 class="card-title">Area</h5>
         <p class="card-text"><?php
@@ -32,7 +35,7 @@
 					  		<div style="padding-left: 20px;">
 						  		 <input class="form-check-input" name="checklist[]" type="checkbox" value="<?php echo $id ?>" id="defaultCheck1">
 						  		<label class="form-check-label" for="defaultCheck1">
-						    		<?php echo $name ?>
+						    		<?php echo $name; ?>
 						    	</label>
 						    	<br>
 					    	</div>
@@ -40,12 +43,12 @@
 					  	}
 					    ?>
         </p>
-        <button type="submit" name="submit" value="submit" class="btn btn-primary" >Search</button>
+        <!-- <button type="submit" name="submit" value="submit" class="btn btn-primary" >Search</button> -->
       </div>
-    </div>
+    
   </div>
   <div class="col-sm-6">
-    <div class="card" style="background-color: lightgrey;">
+   
       <div class="card-body">
         <h5 class="card-title">Thesis Title</h5>
         <input class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp" placeholder="Title">
@@ -57,14 +60,21 @@
         <h5 class="card-title">Supervisor</h5>
         <input class="form-control" id="exampleInputEmail1" name="supervisor" aria-describedby="emailHelp" placeholder="Supervisor">
         </div>
-        <button type="submit" name="submit" value="submit" class="btn btn-primary" style="margin-top: 17px;">Search</button>
+        <!-- <button type="submit" name="submit" value="submit" class="btn btn-primary" style="margin-top: 17px;">Search</button> -->
       </div>
-    </div>
+    
   </div>
 </div>
+
+<button type="submit" name="submit"  value="submit" class="btn btn-outline-info" style="width:25%; margin:auto;">Search</button>
+
 </div>
 </form>
 <hr>
+
+
+
+
 <div>
 	<h2>Some Recently Completed Thesis.</h2>	
 	<div style="margin-top: 10px;">
